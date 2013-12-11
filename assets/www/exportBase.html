@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Properties Example</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova-2.9.0.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="./js/creerBase.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/classeItem.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/FileSaver.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="./css/FeuilleCSS.css"/>
+    <script type="text/javascript" charset="utf-8">
+	
+	var variable_BDD="";
+	var titre_fichier="";
+	
+	function gotFS(fileSystem) {
+        fileSystem.root.getFile("/storage/sdcard0/phonegap/"+titre_fichier+".sql", {create: true, exclusive: false}, gotFileEntry, fail);
+   }
+
+   function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+   }
+
+   function gotFileWriter(writer) {
+        writer.write(variable_BDD);
+   }
+
+   function fail(error) {
+        console.log(error.code);
+   }
+
+	function fin_recupBDD()
+	{		
+		if((navigator.userAgent.lastIndexOf('Android'))!=-1)
+		{
+			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+		}
+		else
+		{
+			var blob = new Blob([variable_BDD], {type: "text/plain;charset=utf-8"});
+			saveAs(blob, titre_fichier+".sql");
+		}
+		alert('fichier enregistré dans '+absolutePathPhonegap+' sous le nom de: '+titre_fichier+'.sql');
+		
+	}
+	
+    </script>
+  </head>
+  <body>
+  
+  <a href="index.html"><img src="./img/icone_home.png" width="5%"/></a>
+  
+	<form id="formulaire" onsubmit="recupererBDD()" name="formulaire" method="POST"  enctype="multipart/form-data">
+		<label for ="titre" id="tintin">nom du fichier/patient</label>
+		<INPUT id="Phgap" type="text" name="titre" id="titre" value=""/>
+		
+		</br></br></br>
+		<input type="button" name="envoyer" onclick="recupererBDD();" value="Exporter la base">
+	
+	</form>
+    
+    <script type="text/javascript">
+	
+	
+    </script>
+    
+  </body>
+</html>

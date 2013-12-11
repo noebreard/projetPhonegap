@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Accueil</title>
+<script type="text/javascript" charset="utf-8" src="js/creerBase.js"></script>
+<script type="text/javascript" charset="utf-8" src="apis/capture.js"></script>
+
+<!--
+<script type="text/javascript" charset="utf-8" src="cordova-2.9.0.js"></script> 
+-->
+<script type="text/javascript" charset="utf-8" src="./js/redimensionnement.js"></script>
+
+
+<link rel="stylesheet" type="text/css" href="./css/FeuilleCSS.css"/>
+
+</head>
+<body>
+<h1>Application d'aide &agrave; la communication</h1>
+
+
+<!--
+<a onClick="alert(navigator.userAgent)">INFOS</a></br>
+-->
+<!--
+<a onClick="alert('c\'est bien t\'as clicke sur les infos')">INFOS</a></br>
+-->
+
+<!-- mettre des images pour les liens-->
+<div id="panneau_accueil_boutons">
+	<a href="./pageConfig.html?rubrique=0"><img id="lien_image" src="./img/image_config.png"/></a>
+	<a href="./commencerPhrase.html?rubrique=0"><img id="lien_image" src="./img/pacman.png"/></a>
+	</br></br></br></br>
+	<div style="font-size: 200%">
+		<div id="export_index"><a href="./exportBase.html">exporter</a></div>
+		<a onClick="goDropDatabase()">vider la base</a>
+		<div id="import_index"><a href="./importBase.html">importer</a><div id="export_index">
+	</div>
+</div>
+
+
+<script>
+
+	function goDropDatabase()
+	{
+		if (confirm("Voulez-vous vraiment supprimer l'ensemble des elements de la base ?")) 
+		{
+			ropDatabase();
+		}
+	}
+
+</script>
+
+
+</body>
+</html>

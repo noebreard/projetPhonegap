@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Device Properties Example</title>
+
+<!--
+    <script type="text/javascript" charset="utf-8" src="cordova-2.9.0.js"></script>
+-->
+    
+    <script type="text/javascript" charset="utf-8" src="./js/creerBase.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./js/classeItem.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="./css/FeuilleCSS.css"/>
+    <script type="text/javascript" charset="utf-8">
+	
+	var variable_BDD="";
+	var titre_fichier="";
+
+	var pictureSource;   
+var destinationType; 
+
+document.addEventListener("deviceready",onDeviceReady,false);
+
+function onDeviceReady() 
+{
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+}
+
+function onPhotoURISuccess(imageURI) 
+{
+    console.log(imageURI);
+    updateImage(imageURI);
+}
+
+function onFail(message) 
+{
+    console.log('Failed because: ' + message);
+}
+
+function getPhoto(source) 
+{
+    navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+    destinationType: destinationType.FILE_URI,
+    sourceType: source });
+    
+}
+	
+	function verif_file(e) {
+
+		var file=null;
+		var reader = new FileReader();
+		
+		
+		file = document.getElementById('fileinput').files;
+		
+		
+		alert(file.name);
+		
+		reader.readAsText(file, 'UTF-8');
+		
+		/*
+		if (fichier.type.match('*.sql')){
+			
+		}
+		else
+		{
+			alert('vous devez exporter un fichier .sql');
+		}*/
+}
+	
+    </script>
+  </head>
+  <body>
+	
+	<a href="index.html"><img src="./img/icone_home.png" width="5%"/></a>
+	</br></br></br>
+	
+    <label for ="titre" id="tintin">Choisir le fichier (.sql)</label>
+    <input id="file" type="file" />
+
+	</br></br></br></br>
+	<button onClick="chargeFichierSurNexus()" value="go nexus go !!" >go nexus go !!</button>
+
+<script>
+var fileInput = document.querySelector('#file');
+
+fileInput.onchange = function() {
+
+    var reader = new FileReader();
+
+    reader.onload = function() {
+        //alert('Contenu du fichier "' + fileInput.files[0].name + '" :\n\n' + reader.result);
+        dropAndLoadDatabase(reader.result);
+    };
+
+    reader.readAsText(fileInput.files[0]);
+
+};
+
+function chargeFichierSurNexus()
+{
+	var maSuperRequete="INSERT INTO rubrique(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('1','0','famille','De familie.jpg','famille1386171705335.mp3','0')\r\nINSERT INTO rubrique(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('2','0','animaux','De muis.jpg','animaux1386171842117.mp3','1')\r\nINSERT INTO rubrique(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('3','0','jeux','courant1385718382392.jpg','jeux1386172188992.mp3','5')\r\nINSERT INTO rubrique(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('4','0','test','De oma.jpg','test1386172413603.mp3','8')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('1','1','papa','De meneer.jpg','papa1386171742664.mp3','0')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('2','1','maman','De mama _ de moeder.jpg','maman1386171795160.mp3','1')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('3','2','cle','cle1385629622402.jpg','cle1386171902737.mp3','0')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('4','0','clavier','fjygy1386083361151.jpg','clavier1386172028845.mp3','2')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('5','0','ordinateur','coucou1386083968584.jpg','ordinateur1386172082928.mp3','3')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('6','0','papi','De opa.jpg','papi1386172152464.mp3','4')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('7','0','pompiers','De brandweerman.jpg','pompiers1386172233286.mp3','6')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('8','0','souris','souris1386172367266.jpg','souris1386172370734.mp3','7')\r\nINSERT INTO item(id, id_rubrique,titre,lien_image, lien_son, 'position') VALUES ('9','0','tante','De mevrouw.jpg','tante1386172454833.mp3','9')\r\n";
+	dropAndLoadDatabase(maSuperRequete);
+}
+
+</script>
+    
+  </body>
+</html>

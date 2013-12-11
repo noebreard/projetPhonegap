@@ -1,0 +1,48 @@
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="./css/FeuilleCSS.css"/>
+<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.1.0.min.css" />
+
+<script src="jquery.mobile/jquery-1.7.2.min"></script>
+<script src="jquery.mobile/jquery.mobile-1.1.0.min.js"></script>
+
+<script>
+var param = window.location.search;
+var tab = param.split("=");
+var error = tab[1];
+if(error == "1")
+alert("Mot de passe incorrect");
+
+// ... ICI ...
+//window.location="pageConfig.html?rubrique=0";
+
+function verifmdp()
+{
+var pwd = document.getElementById("pwd").value;
+
+if(pwd == "test")
+{
+	window.location="pageConfig.html?rubrique=0";
+}
+else
+{
+	window.location="pageConfigVerif.html?error=1";
+}
+}
+</script>
+</head>
+
+
+<body>
+
+<div id="cadre_password">
+	<input id="pwd" type="password" name="pwd"/>
+	<button ontouchstart="verifmdp()">VALIDER</button>
+</div>
+
+</br>
+<img id="lien_image2" onClick="document.location='commencerPhrase.html?rubrique=0'" src="./img/icone_home.png"/>
+
+</body>
+</html>

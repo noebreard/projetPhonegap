@@ -1,0 +1,506 @@
+
+body
+{
+text-align:center;
+height:100%;
+width:100%;
+
+}
+
+#body{
+	 border: 2px red solid;
+}
+
+#panneau_phrase
+{
+ display:inline-block;
+ margin:auto;
+ width:100%;
+ }
+ 
+ .play
+ {
+ width:8%;
+ }
+ 
+ #panneau_items
+ {
+ height:50%;
+ width:85%;
+ border: 0px black solid;
+ }
+ 
+#lesImages
+{
+position:absolute;
+float:left;
+text-align:center;
+margin-left:10%;
+width:77%;
+border: 0px gold solid;
+}
+
+#lesImages_config
+{
+position:absolute;
+margin-top: 2%;
+float:left;
+height:500px;
+width:98%;
+border: 0px red solid;
+}
+
+#phrase_fleches
+{
+position:relative;
+float:right;
+text-align:right;
+width: 12%;
+height:100%;
+}
+
+#images_fleches_haut
+{
+position:relative;
+width: 90%;
+height:10px;
+border: 1px black solid;
+margin-top:20%;
+}
+
+#images_fleches_bas
+{
+width: 90%;
+height:100%;
+border: 1px black solid;
+}
+ 
+  #panneau_item_phrase
+ {
+ height:50%;
+ width:100%;
+ display:inline-block;
+ margin:auto;
+ text-align: left;
+ }
+ 
+ #valid
+ {
+ width:75%;
+ }
+ 
+  #bt_retour
+ {
+ position:absolute;
+ top:89%;
+ width:7%;
+ left:2%;
+ }
+ 
+  #suppr
+ {
+ width:55%;
+ }
+ 
+ #image_rubrique
+ {
+ width: 80%;
+ border: 2px black solid;
+ margin: 1%;
+ }
+ 
+ .image_rubrique
+ {
+ width: 80%;
+ border: 2px black solid;
+ margin: 1%;
+ }
+ 
+ #items
+ {
+ width: 22%;
+ margin: 1%;
+ border: 2px black solid;
+ }
+ 
+ #span_dossier
+ {
+ position:absolute;
+ top: 10%;
+ left:2%;
+ margin: auto;
+ width: 94%;
+ overflow:hidden; white-space:nowrap;
+ border: 0px red solid;
+ }
+ 
+ #span_dossier_item
+ {
+ position:absolute;
+ left:0px;
+ overflow:hidden; white-space:nowrap;
+ border: 0px red solid;
+ }
+ 
+ #item_dossier
+ {
+ position:relative;
+ float:left;
+ top:0%;
+ width:100%;
+ border: 0px yellow solid;
+ }
+ 
+ #cadre_items
+  {
+  position:relative;
+ float: left;
+ margin: 1%;
+ width: 28%;
+ }
+ 
+ .contour_cadre{
+ border:1px black solid;
+ }
+ 
+ #cadre_items2_config
+  {
+  position:relative;
+ width: 90%;
+ border:1px black solid;
+ }
+ 
+ .cadre_items2_config
+ {
+ position:relative;
+ width: 90%;
+ border:1px black solid;
+ }
+ 
+ .cadre_items_config
+  {
+  position:relative;
+ float: left;
+ margin: 1%;
+ width: 22%;
+ position: fixed;
+ }
+ 
+ #cadre_items_config
+  {
+  position:relative;
+ float: left;
+ margin: 1%;
+ width: 22%;
+ }
+ 
+ #separateur_item{
+ 
+ }
+ 
+ #mots_phrase
+ {
+ width: 5%;
+ margin:1%;
+ border:2px black solid;
+ }
+ 
+ #ensembleImage
+ {
+ margin:auto;
+ }
+ 
+ .home
+ {
+ width:5%;
+ }
+ 
+ .phrase
+ {
+ width:81%;
+ border: 2px black solid;
+ margin:auto;
+ text-align:left;
+  margin-left:2%;
+ }
+ 
+ .table
+ {
+  width:100%;
+  margin:auto;
+  margin-top:1%;
+
+ }
+ 
+ .boutons
+ {
+ width:100%;
+ }
+ 
+#imageModif
+{
+	width: 38%;
+}
+
+#titre{    
+    -webkit-user-select: text;
+    -webkit-user-select: auto !important;
+        color: blue;
+}
+
+#panneau_accueil_boutons{
+	margin: auto;
+	width: 80%;
+	border: 2px black solid;
+}
+
+
+#lien_image{
+	width: 30%;
+	margin: 5%;
+}
+
+#lien_image2{
+	float: right;
+	height: 70%;
+	margin: 5%;
+}
+
+#cadre_password
+{
+	position: absolute;
+	margin: 3%;
+	width: 15%;
+}
+
+#fil_ariane{
+	text-align: left;
+	margin: 1%;
+}
+
+#croix_suppression
+{
+position: absolute;
+top: 11%;
+left: 66%;
+width:5%;
+}
+
+#formAjoutItem{
+	text-align: left;
+	margin: auto;
+	width: 50%;
+	border: 1px black solid;
+}
+
+
+#formulaire
+{
+	position: relative;
+	margin:10px;
+}
+
+#titre_form
+{
+width:45%;
+}
+
+#boutonAjouter
+{
+margin:auto;
+text-align:center;
+width:45%;
+}
+
+#image_item
+{
+text-align:center;
+position:relative;
+top:10px;
+}
+
+#titre_item
+{
+position: absolute;
+left: 40%;
+}
+
+#icone_record
+{
+width: 100px;
+margin: 50px;
+}
+
+#modif_home
+{
+position: absolute;
+top: 13%;
+left: 16%;
+width: 7%;
+}
+
+#form_home
+{
+position: absolute;
+top: 12%;
+left: 29%;
+width: 5%;
+}
+
+#fleche_position
+{
+	width: 40px;
+}
+
+
+#croix_suppression
+{
+position: absolute;
+top: 15%;
+left: 76%;
+width:5%;
+}
+
+
+
+
+
+
+
+#ajout_home
+{
+position: absolute;
+top: 15%;
+left: 17%;
+width: 6%;
+}
+
+#fleches_haut_bas
+{
+position: absolute;
+top: 40%;
+left: 7%;
+width:30%;
+}
+
+#elements_positions
+{
+position:absolute;
+top: 35%;
+left:0%;
+text-align:center;
+}
+
+#home_config
+{
+position:absolute;
+float:right;
+width:6%;
+left:85%;
+}
+
+#fleche_retour
+{
+float:left;
+left:85%;
+width:6%;
+}
+
+
+#export_index
+{
+text-align:left;
+float:left;
+left:0%;
+}
+
+
+#import_index
+{
+text-align:right;
+float:right;
+left:0%;
+}
+
+#btn_capture
+{
+position: absolute;
+top: 38%;
+left: 76%;
+width:5%;
+}
+
+#btn_play
+{
+position: absolute;
+top: 78%;
+left: 76%;
+width:5%;
+}
+
+#btn_record
+{
+position: absolute;
+top: 65%;
+left: 76%;
+width:5%;
+}
+
+#mess_record
+{
+position: absolute;
+top: 52%;
+left: 76%;
+width:20%;
+}
+
+#posi_record
+{
+position: absolute;
+top: 55%;
+left: 76%;
+width:15%;
+}
+
+#export_index
+{
+text-align:left;
+float:left;
+left:0%;
+}
+
+
+#import_index
+{
+text-align:right;
+float:right;
+left:0%;
+}
+
+
+.croix_grisee
+{
+position:absolute;
+top: 0%;
+left: 0%;
+}
+
+.test_cadre
+{
+}
+
+.cadre_items
+  {
+  position:relative;
+ float: left;
+ margin: 1%;
+ width: 28%;
+ }
+
+
+.cadre_items2_config
+{
+position:relative;
+width: 100%;
+border:1px black solid;
+}
