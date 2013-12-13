@@ -45,6 +45,15 @@ function Item(id, rubrique, titre, lien_image, lien_son) {
 	this.protectedTitle = function(){
 		return titre.replace("'","");	// au pire cette méthode n'est appelée que lorsqu'un item est inséré dans la phrase
 	}
+	
+	this.protectedImageOriginal = function(){
+		return this.lien_image_original.replace("'","\\'");	// au pire cette méthode n'est appelée que lorsqu'un item est inséré dans la phrase
+	}
+	
+	
+	this.protectedSonOriginal = function(){
+		return this.lien_son_original.replace("'","\\'");	// au pire cette méthode n'est appelée que lorsqu'un item est inséré dans la phrase
+	}
 }
 
 

@@ -10,9 +10,7 @@
 
 
 
-<!--
 <script type="text/javascript" charset="utf-8" src="cordova-2.9.0.js"></script>
--->
 
 <div id="cordova"></div>
 
@@ -57,13 +55,14 @@
 		<table class="table">
 			<tr class="table">
 				<td class="play">
-					<img ontouchstart="lire_phrase(0)" id="valid" src="./img/lire_phrase.jpg"/>
+					<img ontouchstart="supprimerUnMot()" id="suppr" src="./img/supprimer_mot.jpg"/>
 				</td>
 				<td class="phrase" id="phrase">
 				
 				</td>
 				<td class="boutons">
-					<img ontouchstart="supprimerUnMot()" id="suppr" src="./img/supprimer_mot.jpg"/>
+					<img ontouchstart="lire_phrase(0)" id="valid" src="./img/lire_phrase.jpg"/>
+					
 					<img ontouchstart="recupererItemsAndRubriquesByParent(0)" id="bt_retour" src="./img/fleche_racine.jpg"/>
 				</td>
 			</tr>
@@ -85,13 +84,13 @@
 	
 </div>
 <script type="text/javascript">
-recupererItemsAndRubriquesByParent(rubrique_parent);
-/*
+//recupererItemsAndRubriquesByParent(rubrique_parent);
+
 document.addEventListener("deviceready", whenReady, false);
 
 	function whenReady(){
 		recupererItemsAndRubriquesByParent(rubrique_parent);
-	}*/
+	}
 
 
 var tabPhrase = new Array();

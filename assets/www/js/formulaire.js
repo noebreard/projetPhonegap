@@ -69,37 +69,76 @@ function updateSon(value)
 			}
 		);
 		// Play audio
+		
+		// on enlève la possibilité de lire un son
+		document.getElementById('btn_play').removeAttribute('ontouchstart');
 		my_media.play();	
+		
+		var timerDur = setInterval(function() {
+			duree = my_media.getDuration(); 
+			
+			// et dès que notre son est fini, on réactive le bouton play
+			setTimeout("document.getElementById('btn_play').setAttribute('ontouchstart','playAudio_verif()');",(duree*1000));	// *1000 car le setTimeout prend un nombre de millisecc
+			clearInterval(timerDur);
+		}, 100);
 }
+
+var monTitreItem;
+
+function goUpdateItem_verif(value)
+{
+	if(value==2)
+	{
+		updateItem(id_item, monTitreItem, nomImage, nomSon);
+	}
+			
+}
+
 
 function goUpdateItem()
 	{
 		var titre = document.getElementById('titre_form').value;
-		
+		monTitreItem=titre;
 		
 		if( (nomImage=="") || (titre=="") )
 			alert("Vous devez renseigner:\r\n- le titre de l'item\r\n- une image associee a cet item");
 		else
 		{
-			if (confirm("Voulez-vous valider la modification de cet élément dans la base de donnees ?")) 
+			
+			
+			navigator.notification.confirm("Voulez-vous valider la modification de l'item '"+titre+"' ?", goUpdateItem_verif, "Modification", "Non, Oui");
+			
+			/*if (confirm("Voulez-vous valider la modification de cet élément dans la base de donnees ?")) 
 			{
 				updateItem(id_item, titre, nomImage, nomSon);
-			}
+			}*/
 		}
 	}
+	
+function goUpdateRubrique_verif(value)
+{
+	if(value==2)
+	{
+		updateRubrique(id_rubrique, monTitreItem, nomImage, nomSon);
+	}
+			
+}
 	
 function goUpdateRubrique()
 {
 	var titre = document.getElementById('titre_form').value;		
+	monTitreItem=titre;
 	
 	if( (nomImage=="") || (titre=="") )
 		alert("Vous devez renseigner:\r\n- le titre de la rubrique\r\n- une image associee a cet item");
 	else
 	{
+		navigator.notification.confirm("Voulez-vous valider la modification de la rubrique '"+titre+"' ?", goUpdateRubrique_verif, "Modification", "Non, Oui");
+		/*
 		if (confirm("Voulez-vous valider la modification de cet élément dans la base de donnees ?")) 
 		{
 			updateRubrique(id_rubrique, titre, nomImage, nomSon);
-		}
+		}*/
 	}
 }
 	
@@ -123,10 +162,7 @@ function verifierRubrique()
 			alert("Vous devez renseigner:\r\n- le titre de la rubrique\r\n- une image associee a cette rubrique");
 		else
 		{
-			if (confirm("Voulez-vous valider la modification de cet élément dans la base de donnees ?")) 
-			{
-				insererRubrique(titre, nomImage, nomSon, rubrique);
-			}
+			insererRubrique(titre, nomImage, nomSon, rubrique);
 		}
 	}
 	
@@ -139,10 +175,7 @@ function verifierItem()
 			alert("Vous devez renseigner:\r\n- le titre de l'item\r\n- une image associee a cet item");
 		else
 		{
-			if (confirm("Voulez-vous valider la modification de cet élément dans la base de donnees ?")) 
-			{
-				insererItem(titre, nomImage, nomSon, rubrique);
-			}
+			insererItem(titre, nomImage, nomSon, rubrique);
 		}
 	}	
 
@@ -195,19 +228,52 @@ function onDeviceReady()
 
 
 
-function verifierSuppressionItem(){
+function verifierSuppressionItem(value){
 	
+	if(value==2)
+	{
+		verifSemaphore(mon_item);
+		return;
+	}
+	if(value==1)
+		return;
+	var titre = document.getElementById('titre_form').value;
+	navigator.notification.confirm("Voulez-vous valider la suppression de l'item '"+titre+"' ?", verifierSuppressionItem, "Suppression", "Non, Oui");
+	/*
 	if (confirm("Voulez-vous valider la suppression de l'item ?"))
 	{
 		verifSemaphore(mon_item);
-	}
+	}*/
 }
 
 
-function verifierSuppressionRubrique(){
+function verifierSuppressionRubrique(value){
+	if(value==2)
+	{
+		verifSemaphore(mon_item);
+		return;
+	}
+	if(value==1)
+		return;
 	
+	var titre = document.getElementById('titre_form').value;
+	navigator.notification.confirm("Voulez-vous valider la suppression du dossier '"+titre+"' ainsi que des éléments sous-jacent de la base de donnees ?", verifierSuppressionRubrique, "Suppression", "Non, Oui");
+	
+	/*
 	if (confirm("Voulez-vous valider la suppression de ce dossier ainsi que des éléments sous-jacent de la base de donnees ?"))
 	{
 		verifSemaphore(mon_item);
-	}
+	}*/
+}
+
+function adapterImageFormulaire()
+{
+	var superTestTop = document.getElementById('formulaire').offsetWidth;
+	var variableHauteurImage = superTestTop*0.385;
+	//alert(variableHauteurImage);
+	//document.getElementById('image_item').style.max-height=variableHauteurImage+"px";
+	//alert(document.getElementById('imageModif').width);
+	var genialTropTop = 150;
+	document.getElementById('image_item').style.maxHeight=variableHauteurImage+"px";
+
 }

@@ -45,7 +45,10 @@ function affiche_elements_position()
 	var superTestTop = document.getElementById('lesImages_config').offsetWidth;
 	var variableHauteurDossier = superTestTop*0.17;
 	var variableHauteurItem = superTestTop*0.219;
-	//alert(superTestTop);
+	//alert(variableHauteurItem);
+	
+	/*variableHauteurDossier = 1000;
+	variableHauteurItem = 1000;*/
 		
 	for(var i = 0; i < tableauElements.length; i++)
 	{
@@ -53,7 +56,8 @@ function affiche_elements_position()
 		if(tableauElements[i].type=="rubrique")
 			affItems+="<div id=\"cadre_items_config\"><a onClick=\"recupererItemsAndRubriquesByParent("+tableauElements[i].id+")\"><img id=\"item_dossier\" src=\"./img/dossier.jpg\"/><span id=\"span_dossier\" style=\"max-height: "+variableHauteurDossier+"px\"><img id=\"image"+i+"\" class=\"image_rubrique\" src=\""+tableauElements[i].lien_image+"\"/></span></a></div>";
 		else
-			affItems+="<div id=\"cadre_items_config\"><a onClick=\"location='formModifItem.html?id_item="+tableauElements[i].id+"'\"><img id=\"item_dossier\" src=\"./img/fond_blanc.png\"/><span id=\"span_dossier_item\" style=\"max-height: "+variableHauteurItem+"px\"><img id=\"image"+i+"\" class=\"cadre_items2_config\" style=\"\" src=\""+tableauElements[i].lien_image+"\"/></span></a></div>";
+			affItems+="<div id=\"cadre_items_config\"><a onClick=\"location='formModifItem.html?id_item="+tableauElements[i].id+"'\"><img id=\"item_dossier\" src=\"./img/fond_blanc.png\"/><span id=\"span_dossier_item\" style=\"max-height: "+variableHauteurItem+"px\"><img class=\"image_item_phrase\" src=\""+tableauElements[i].lien_image+"\"/></span></a></div>";
+			//affItems+="<div id=\"cadre_items_config\"><a onClick=\"location='formModifItem.html?id_item="+tableauElements[i].id+"'\"><img id=\"item_dossier\" src=\"./img/fond_blanc.png\"/><span id=\"span_dossier_item\" style=\"max-height: "+variableHauteurItem+"px\"><img id=\"cadre_items2_config\" style=\"\" src=\""+tableauElements[i].lien_image+"\"/></span></a></div>";
 			//affItems+="<div id=\"cadre_items_config\"><a ontouchstart=\"location='formModifItem.html?id_item="+tableauElements[i].id+"'\"><img id=\"cadre_items_config\" src=\"./img/fond_blanc.png\"/><img id=\"image_rubrique\" width=\" 22%\" src=\""+tableauElements[i].lien_image+"\"/></a></div>";
 	
 	}

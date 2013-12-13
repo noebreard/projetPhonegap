@@ -23,7 +23,7 @@
 </head>
 
 
-<body onload="getFilArianeRubrique(rubrique)">
+<body onload="getFilArianeRubrique(rubrique); adapterImageFormulaire()">
     <div id="fil_ariane"></div>
 <h1>Ajout d'une rubrique</h1>
 
@@ -37,13 +37,12 @@
 				 
 				 <br/>
 				<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Image depuis galerie</button>
-				 <br/>
+				
 				 <div id="fichier_son">Fichier son:</div>
-				 Son : <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
+				 <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
 				 <input onchange="updateSon(1)" type="file" id="file_son" style="visibility: hidden;" name="file_son"/>
 				 
 				 
-				 <br/>
 		</div>
 		<img src="./img/icone_home.png" onClick="window.location='pageConfig.html?rubrique=0'" id="ajout_home"/>
 		<img id="btn_capture" onClick="captureImage()" src="./img/btnCapture.png"/>
@@ -56,7 +55,7 @@
 		</div>
 	</div>
 	<div id="boutonAjouter">
-		<input type="button" onClick="verifierRubrique()" value="Ajouter rubrique"/>
+		<input type="button" onClick="verifierRubrique(1)" value="Ajouter rubrique"/>
 	</div>
 </body>
 </html>

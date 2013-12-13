@@ -46,7 +46,7 @@ document.addEventListener("deviceready", whenReady, false);
 	</script>
 
 </head>
-<body>
+<body onLoad="adapterImageFormulaire()">
     <div id="fil_ariane"></div>
 <h1>Modification d'une rubrique</h1>
 
@@ -70,9 +70,9 @@ document.addEventListener("deviceready", whenReady, false);
 				 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Image depuis galerie</button>
 				 
 				 <div id="fichier_son"></div>
-				 Son : <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
+				 <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
 				 <input onchange="updateSon(1)" type="file" id="file_son" style="visibility: hidden;" name="file_son"/>
-				 <br/>
+				 
 				 
 		</div>
 		<img src="./img/icone_home.png" ontouchstart="window.location='pageConfig.html?rubrique=0'" id="ajout_home"/>

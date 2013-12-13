@@ -45,7 +45,7 @@ document.addEventListener("deviceready", whenReady, false);
 	</script>
 
 </head>
-<body>
+<body onLoad="adapterImageFormulaire()">
     <div id="fil_ariane"></div>
 <h1>Modification d'un item</h1>
 
@@ -71,9 +71,8 @@ document.addEventListener("deviceready", whenReady, false);
 				 <br/>
 				 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Image depuis galerie</button>
 				 
-				 <br/>
 				 <div id="fichier_son"></div>
-				 Son : <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
+				 <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
 				 <input onchange="updateSon(1)" type="file" id="file_son" style="visibility: hidden;" name="file_son"/>
 				  
 				 

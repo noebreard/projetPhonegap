@@ -26,10 +26,9 @@
 
 </head>
 
-<body onload="getFilArianeRubrique(rubrique)">
-    <div id="fil_ariane"></div>
+<body onload="getFilArianeRubrique(rubrique); adapterImageFormulaire()">
+<div id="fil_ariane"></div>
 <h1>Ajout d'un item</h1>
-
 
 	<div id="formAjoutItem">
 		<div id="formulaire">
@@ -40,20 +39,20 @@
 				 <div id="image_item"><img id="imageModif" src="./img/choisir_fichier.png"/></div>
 				 
 				 <br/>
-				 <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Image depuis galerie</button>
+				 <div id="btn_fichier_image">
+					<button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Image depuis galerie</button>
+				 </div>
 <!--
 				 Ic&ocirc;ne : <input onchange="updateImage(1)" type="file" id="file" name="file"/>
 -->
 <!--
 				<button onclick="superMegaTestAudio();">Son From Gallery!!</button>
 -->
-				 <br/>
 				 <div id="fichier_son">Fichier son:</div>
-				 Son : <button onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
-				 <input onchange="updateSon(1)" type="file" id="file_son" style="visibility: hidden;" name="file_son"/>
-				 <br/>
-				 
-				 
+				 <div id="bouton_select_fichier_son">
+					 <button id="btn_fichier_son" onclick="javascript: document.getElementById('file_son').click();">Choisir fichier son</button>
+					 <input onchange="updateSon(1)" type="file" id="file_son" style="visibility: hidden;" name="file_son"/>
+				 </div>
 			</div>
 			<img src="./img/icone_home.png" ontouchstart="window.location='pageConfig.html?rubrique=0'" id="ajout_home"/>
 			<img id="btn_capture" ontouchstart="captureImage()" src="./img/btnCapture.png"/>
@@ -68,10 +67,6 @@
 	<div id="boutonAjouter">
 		<input type="button" name="envoyer" ontouchstart="verifierItem();" value="Ajouter item">
 	</div>
-
-	<script>
-		document.getElementById('file_son').value="buenjourno";
-	</script>
 
 </body>
 </html>

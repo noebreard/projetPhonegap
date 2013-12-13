@@ -52,6 +52,16 @@ var numPage=0;
 		//alert('taille: '+tableauRubriques.length);
 		
 		var valDep = numPage*6;
+		if(numPage<=0)
+			document.getElementById('images_fleches_haut').style.visibility='hidden';
+		else
+			document.getElementById('images_fleches_haut').style.visibility='visible';
+		
+		
+		if((valDep+6)>=tableauElements.length)
+			document.getElementById('images_fleches_bas').style.visibility='hidden';
+		else
+			document.getElementById('images_fleches_bas').style.visibility='visible';
 		
 		var superTestTop = document.getElementById('lesImages').offsetWidth;
 		var variableHauteurDossier = superTestTop*0.213;
@@ -59,6 +69,7 @@ var numPage=0;
 		//alert(variableHauteurItem);
 		for(var i = (valDep); i < (valDep+6); i++)
 		{
+			//alert(tableauElements[i].protectedTitle());
 			if(i>=tableauElements.length)
 				break;
 			//document.write("<a href=\"./pageConfig.html?rubrique="+tableauRubriques[i].id+"\"><img id=\"items\" width=\" 22%\" src=\""+tableauRubriques[i].lien_image+"\"/></a>");
@@ -67,7 +78,7 @@ var numPage=0;
 				affItems+="<div id=\"cadre_items\"><a onclick=\"playAudioRubrique('"+tableauElements[i].lien_son+"','"+tableauElements[i].id+"')\"><img id=\"item_dossier\" src=\"./img/dossier.jpg\"/><span id=\"span_dossier\" style=\"max-height: "+variableHauteurDossier+"px;\"><img id=\"image"+i+"\" class=\"image_rubrique\" src=\""+tableauElements[i].lien_image+"\"/></span></a></div>";
 			else
 				//affItems+="<div id=\"cadre_items\"><a ontouchstart=\"ajoutMot('"+tableauElements[i].id+"', '"+tableauElements[i].id_rubrique+"', '"+tableauElements[i].protectedTitle()+"', '"+tableauElements[i].lien_image_original+"', '"+tableauElements[i].lien_son_original+"')\"><img id=\"item_dossier\" width=\" 22%\" src=\""+tableauElements[i].lien_image+"\"/></a></div>";
-				affItems+="<div id=\"cadre_items\"><a onclick=\"ajoutMot('"+tableauElements[i].id+"', '"+tableauElements[i].id_rubrique+"', '"+tableauElements[i].protectedTitle()+"', '"+tableauElements[i].lien_image_original+"', '"+tableauElements[i].lien_son_original+"');playAudioItem('"+tableauElements[i].lien_son+"','"+tableauElements[i].id+"')\"><img id=\"item_dossier\" src=\"./img/fond_blanc.png\"/><span id=\"span_dossier_item\" style=\"max-height: "+variableHauteurItem+"px\">  <div class=\"test_cadre\" id=\"item"+tableauElements[i].id+"\"><img id=\"image"+i+"\" class=\"cadre_items2_config\" src=\""+tableauElements[i].lien_image+"\"/><img id=\"croix_grisee"+tableauElements[i].id+"\" class=\"croix_grisee\" width=\"\" src=\"\"/></div>  <span id=\"span_dossier\"></span></a></div>";
+				affItems+="<div id=\"cadre_items\"><a onclick=\"ajoutMot('"+tableauElements[i].id+"', '"+tableauElements[i].id_rubrique+"', '"+tableauElements[i].protectedTitle()+"', '"+tableauElements[i].protectedImageOriginal()+"', '"+tableauElements[i].protectedSonOriginal()+"')\"><img id=\"item_dossier\" src=\"./img/fond_blanc.png\"/><span id=\"span_dossier_item\" style=\"max-height: "+variableHauteurItem+"px\">  <div id=\"item"+tableauElements[i].id+"\"><img id=\"image"+i+"\" class=\"image_item_phrase\" src=\""+tableauElements[i].lien_image+"\"/><img id=\"croix_grisee"+tableauElements[i].id+"\" class=\"croix_grisee\" width=\"\" src=\"\"/></div>  <span id=\"span_dossier\"></span></a></div>";
 		}			
 				
 		//~ <img id=\"croix_grisee\" width=\"\" src=\"./img/croix_grisee.png\"/>
@@ -159,6 +170,9 @@ var numPage=0;
 				return;
 		
 		var item = new Item(id, id_parent, titre, lien_image, lien_son);
+		
+		// on lit le son de l'item sur lequel on vient de cliquer
+		playAudioItem(item.lien_son, id)
 		
 		tabPhrase[tabPhrase.length] = item;
 		
@@ -267,8 +281,8 @@ var numPage=0;
 		{
 			// on réactive l'action à la fin de la phrase
 			document.getElementById('valid').setAttribute("ontouchstart","lire_phrase(0)");
-			item_select="";
-			recupererItemsAndRubriquesByParent(0);
+			//~ item_select="";
+			//~ recupererItemsAndRubriquesByParent(0);
 			return;
 		}
 		
