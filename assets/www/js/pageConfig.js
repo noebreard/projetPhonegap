@@ -46,6 +46,10 @@ function affiche_elements_position()
 	var variableHauteurDossier = superTestTop*0.17;
 	var variableHauteurItem = superTestTop*0.219;
 	//alert(variableHauteurItem);
+	if(rubrique_courante ==0)
+			document.getElementById('fleche_retour').style.visibility='hidden';
+		else
+			document.getElementById('fleche_retour').style.visibility='visible';
 	
 	/*variableHauteurDossier = 1000;
 	variableHauteurItem = 1000;*/

@@ -72,13 +72,14 @@ function updateSon(value)
 		
 		// on enlève la possibilité de lire un son
 		document.getElementById('btn_play').removeAttribute('ontouchstart');
+		document.getElementById('btn_record').removeAttribute('ontouchstart');
 		my_media.play();	
 		
 		var timerDur = setInterval(function() {
 			duree = my_media.getDuration(); 
 			
 			// et dès que notre son est fini, on réactive le bouton play
-			setTimeout("document.getElementById('btn_play').setAttribute('ontouchstart','playAudio_verif()');",(duree*1000));	// *1000 car le setTimeout prend un nombre de millisecc
+			setTimeout("document.getElementById('btn_play').setAttribute('ontouchstart','playAudio_verif()'); document.getElementById('btn_record').setAttribute('ontouchstart','recordAudio()');",(duree*1000));	// *1000 car le setTimeout prend un nombre de millisecc
 			clearInterval(timerDur);
 		}, 100);
 }
@@ -193,7 +194,7 @@ function affiche_elements_position()
 		{
 			if((tableauElements[i].type==myType) && (tableauElements[i].id==id_item))
 			{
-				aff+=" <span style=\"color:red;\">"+tableauElements[i].titre+" / "+tableauElements[i].position+"("+tableauElements[i].type+")</span></br>";
+				aff+=" <span style=\"color:red;\">"+tableauElements[i].titre+" / "+tableauElements[i].position+"</span></br>";
 				bool_ok=0;
 				positionDansRubrique=i;
 			}
@@ -202,7 +203,7 @@ function affiche_elements_position()
 		{
 			if((tableauElements[i].type==myType) &&(tableauElements[i].id==id_rubrique))
 			{
-				aff+=" <span style=\"color:red;\">"+tableauElements[i].titre+" / "+tableauElements[i].position+"("+tableauElements[i].type+")</span></br>";
+				aff+=" <span style=\"color:red;\">"+tableauElements[i].titre+" / "+tableauElements[i].position+"</span></br>";
 				bool_ok=0;
 				positionDansRubrique=i;
 			}
